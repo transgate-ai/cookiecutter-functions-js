@@ -1,0 +1,9 @@
+{
+  "project_name": "My Function",
+  "author_name": "Transgate",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "description": "A template GCP Functions project",
+  "event_type": ["http", "google.cloud.storage.object.v1.finalized"],
+  "gcp_project_id": "transgate-single",
+  "service-account": "{{ cookiecutter.project_slug }}@{{ cookiecutter.gcp_project_id }}.iam.gserviceaccount.com"
+}
