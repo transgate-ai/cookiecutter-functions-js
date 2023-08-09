@@ -1,7 +1,7 @@
 
 #!/bin/bash
 
-CLOUD_URL="https://{{ cookiecutter.project_slug }}-{{ cookiecutter.gcp_project_id }}.run.app"
+CLOUD_URL="https://{{ cookiecutter.region }}-{{ cookiecutter.gcp_project_id }}.cloudfunctions.net/{{ cookiecutter.project_slug }}"
 LOCAL_URL="http://localhost:8080"
 
 # Check if an argument is provided and it is either "prod" or "local"
@@ -19,7 +19,7 @@ fi
 # Now you can use the URL variable as needed in your script
 echo "Using URL: $URL"
 
-curl --max-time 70 -X POST localhost:8080 \
+curl --max-time 70 -X POST $URL \
   {% if 'storage' in cookiecutter.event_type -%}
   -H "ce-id: 123451234512345" \
   -H "ce-specversion: 1.0" \

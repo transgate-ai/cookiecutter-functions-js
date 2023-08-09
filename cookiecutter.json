@@ -5,5 +5,8 @@
   "description": "A template GCP Functions project",
   "event_type": ["http", "google.cloud.storage.object.v1.finalized"],
   "gcp_project_id": "transgate-single",
-  "service-account": "{{ cookiecutter.project_slug }}@{{ cookiecutter.gcp_project_id }}.iam.gserviceaccount.com"
+  "region": "europe-west4",
+  "service_account_id": "{{ cookiecutter.project_slug.replace('_', '-') }}",
+  "gen2": true,
+  "runtime": ["nodejs18", "nodejs16"]
 }
